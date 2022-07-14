@@ -39,7 +39,7 @@ jobs:
    
     - name: Test with pytest
       run: |
-        pytest test
+        python -m pytest 
 
     - name: Check types with mypy
       run: mypy src

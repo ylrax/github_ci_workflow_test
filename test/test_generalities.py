@@ -6,13 +6,16 @@ from src.code import Point, Parent, Child
 def point_a():
     return Point(1, 1)
 
+
 @pytest.fixture
 def point_b():
     return Point(3, 2)
 
+
 @pytest.fixture
 def parent_a():
     return Parent(prop1=1, prop2="random text")
+
 
 @pytest.fixture
 def child_a():

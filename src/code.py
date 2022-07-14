@@ -6,7 +6,7 @@ class Point:
     def __str__(self):
         return "({0},{1})".format(self.x, self.y)
 
-	# overload less than
+    # overload less than
     def __lt__(self, other):
         self_mag = (self.x ** 2) + (self.y ** 2)
         other_mag = (other.x ** 2) + (other.y ** 2)
@@ -27,7 +27,7 @@ class Parent:  # define parent class
         return a + b
 
 
-class Child(Parent): # define child class
+class Child(Parent):  # define child class
     """
     """
     @staticmethod

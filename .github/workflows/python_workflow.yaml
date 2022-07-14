@@ -2,9 +2,11 @@ name: Python workflow testing
 
 on:
   push:
-    branches: [ develop, master ]
+    branches: [ develop, main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
+#  schedule:
+#    - cron: 30 3 * * *
 
 jobs:
   python_ci_test:
@@ -13,7 +15,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: [3.8, 3.9]
+        python-version: [3.7, 3.8, 3.9]
+#        os: [macOS-latest, ubuntu-latest, windows-latest]
 
     steps:
     - uses: actions/checkout@v2
@@ -28,13 +31,15 @@ jobs:
         python -m pip install --upgrade pip
         python -m pip install flake8 pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    
     - name: Lint with flake8
       run: |
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=120 --statistics
+   
     - name: Test with pytest
       run: |
-        pytest --cov --cov-report=xml
+        pytest test
 
     - name: Check types with mypy
       run: mypy src

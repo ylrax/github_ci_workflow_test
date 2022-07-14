@@ -1,2 +1,4 @@
-# github_ci_workflow_test
-Testing of the github testing workflows and ci intetrations
+# Python CI/CD GitHub Action example
+
+
+Playing with the workflow basic options to see

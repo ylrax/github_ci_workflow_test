@@ -41,8 +41,5 @@ jobs:
       run: |
         python -m pytest 
 
-    - name: Check types with mypy
-      run: mypy src
-
     - name: Documentation
       run: echo "documentation process"
